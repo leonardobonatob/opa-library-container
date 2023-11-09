@@ -1,0 +1,81 @@
+@accountId = 
+@fargate_endpoint = http://OpaSt-farga-189K2QYFF6IK4-{{accountId}}.us-east-1.elb.amazonaws.com
+
+###
+POST {{fargate_endpoint}}
+Content-Type: application/json
+
+{
+  "input": {
+    "user": "alice",
+    "action": "read",
+    "object": "id123",            
+    "type": "dog"
+  },
+  "data": {
+    "user_roles": {
+      "alice": [
+        "admin"
+      ],
+      "bob": [
+        "employee",
+        "billing"
+      ],
+      "eve": [
+        "customer"
+      ]
+    },
+    "role_grants": {
+      "customer": [
+        {
+          "action": "read",
+          "type": "dog"
+        },
+        {
+          "action": "read",
+          "type": "cat"
+        },
+        {
+          "action": "adopt",
+          "type": "dog"
+        },
+        {
+          "action": "adopt",
+          "type": "cat"
+        }
+      ],
+      "employee": [
+        {
+          "action": "read",
+          "type": "dog"
+        },
+        {
+          "action": "read",
+          "type": "cat"
+        },
+        {
+          "action": "update",
+          "type": "dog"
+        },
+        {
+          "action": "update",
+          "type": "cat"
+        }
+      ],
+      "billing": [
+        {
+          "action": "read",
+          "type": "finance"
+        },
+        {
+          "action": "update",
+          "type": "finance"
+        }
+      ]
+    }
+  }
+}
+
+###
+
+GET {{fargate_endpoint}}/healthcheck

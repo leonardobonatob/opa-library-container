@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>opa_library</RootNamespace>
+    <PackageId>opa_library</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Description>Library that reads a formatted input.json, evaluates it on Opa and return it's results as bool</Description>
+    <PackageTags>OPA, Opa, opa,</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+  <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+</Project>
